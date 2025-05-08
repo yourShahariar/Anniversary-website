@@ -3,81 +3,293 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Our Love Journey</title>
+  <title>Happy Anniversary, My Jaan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(#ffe6e6, #fff);
-      color: #333;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+      overflow-x: hidden;
+      color: white;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      height: 100vh;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       text-align: center;
     }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
+
     h1 {
-      font-size: 2.5rem;
-      margin-bottom: 1rem;
+      font-size: 3.2em;
+      font-family: 'Dancing Script', cursive;
+      animation: glow 2s ease-in-out infinite alternate;
     }
+
+    p {
+      font-size: 1.3em;
+      margin-top: 10px;
+    }
+
+    @keyframes glow {
+      from {
+        text-shadow: 0 0 10px #ff4da6, 0 0 20px #ff4da6;
+      }
+      to {
+        text-shadow: 0 0 20px #ff4da6, 0 0 40px #ff1a75;
+      }
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -20px;
+        left: 50%;
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        left: 45%;
+        opacity: 0;
+      }
+    }
+
     .section {
-      display: none;
-      animation: fadeIn 1s ease-in-out forwards;
+      padding: 4rem 2rem;
+      background: #fff;
+      color: #333;
     }
-    .active {
-      display: block;
+
+    .timeline {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding-left: 30px;
+      border-left: 3px dashed #8e44ad;
     }
-    button {
-      padding: 0.7rem 1.5rem;
-      font-size: 1rem;
-      background-color: #ff6699;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
+
+    .memory {
+      margin-bottom: 2.5rem;
+      position: relative;
     }
-    button:hover {
-      background-color: #ff3366;
+
+    .memory::before {
+      content: '❤️';
+      position: absolute;
+      left: -18px;
+      top: 0;
+      font-size: 1.2rem;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+
+    .memory h3 {
+      margin: 0;
+      font-size: 1.3rem;
+      color: #6c3483;
+    }
+
+    .memory p {
+      margin: 0.5rem 0;
+    }
+
+    .memory img, .memory video {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-top: 0.5rem;
+    }
+
+    .love-letter {
+      max-width: 700px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.9);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      font-family: 'Dancing Script', cursive;
+    }
+
+    .love-letter h2 {
+      text-align: center;
+      color: #d63384;
+      font-size: 2.5rem;
+    }
+
+    .love-letter p {
+      font-size: 1.3rem;
+      line-height: 2;
+      text-align: justify;
+      color: #444;
+    }
+
+    .photo-wall {
+      padding: 4rem 2rem;
+      background: linear-gradient(135deg, #ffe6ec, #fddde6);
+    }
+
+    .photo-wall h2 {
+      text-align: center;
+      font-family: 'Dancing Script', cursive;
+      font-size: 2.8rem;
+      color: #d63384;
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .photo-grid div {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(6px);
+      padding: 1rem;
+      border-radius: 15px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .photo-grid img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Happy Anniversary, My Love</h1>
-    <div id="section1" class="section active">
-      <p>Click the button to relive our journey...</p>
-      <button onclick="nextSection(1)">Start</button>
-    </div>
-    <div id="section2" class="section">
-      <p>From strangers to soulmates, every moment with you has been magical.</p>
-      <button onclick="nextSection(2)">Next</button>
-    </div>
-    <div id="section3" class="section">
-      <p>One whole year of love, laughter, late-night talks, and dreaming of forever.</p>
-      <button onclick="nextSection(3)">Next</button>
-    </div>
-    <div id="section4" class="section">
-      <p>Thank you for being my peace, my home, my everything.</p>
-      <button onclick="nextSection(4)">Next</button>
-    </div>
-    <div id="section5" class="section">
-      <p>This saree is just a thread, but on you, it becomes a memory.</p>
-      <p>I love you. Forever starts here.</p>
-      <p>– Your CSE Boy</p>
-    </div>
+  <div class="overlay"></div>
+  <div class="content">
+    <h1>Happy Anniversary, My Jaan ❣️</h1>
+    <p>One year of love, memories, and everything in between</p>
   </div>
 
-  <script>
-    function nextSection(current) {
-      document.getElementById('section' + current).classList.remove('active');
-      document.getElementById('section' + (current + 1)).classList.add('active');
-    }
-  </script>
+  <div class="heart" style="left: 40%; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 50%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 60%; animation-delay: 4s;"></div>
+
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mp3" />
+  </audio>
+
+  <section class="section">
+    <div class="timeline">
+      <div class="memory">
+        <h3>📩 First Message - Jan 1, 2023</h3>
+        <p>This is where our forever started. Our first ever conversation. 🥰</p>
+        <img src="first-message.png" alt="First chat screenshot" />
+      </div>
+      <div class="memory">
+        <h3>📸 First Photo Together</h3>
+        <p>Our first snapshot, my favorite memory. Look how cute we are!</p>
+        <img src="first-photo.jpg" alt="First photo together" />
+      </div>
+      <div class="memory">
+        <h3>💬 Sweetest Texts</h3>
+        <p>I still read these when I miss you. You’re my sunshine 🌞</p>
+        <img src="cute-texts.png" alt="Cute messages" />
+      </div>
+      <div class="memory">
+        <h3>💖 First 'I Love You'</h3>
+        <p>The day my heart melted. You said it first… or did I? 😍</p>
+      </div>
+      <div class="memory">
+        <h3>😢 Our First Fight</h3>
+        <p>We argued, but love won. I learned how much I never want to lose you.</p>
+      </div>
+      <div class="memory">
+        <h3>🎥 Video Call Laughs</h3>
+        <p>I recorded this moment—you laughed so hard, it became my ringtone! 😂</p>
+        <video width="320" height="240" controls>
+          <source src="video.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="memory">
+        <h3>🎧 Your Voice</h3>
+        <p>That night you sang to me… I saved it forever.</p>
+        <audio controls>
+          <source src="voice-note.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="memory">
+        <h3>📖 How We Met</h3>
+        <p>Once upon a time, in a random DM, began the most beautiful chapter of my life. From awkward hellos to “I can’t sleep without talking to you”…</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="love-letter">
+    <h2>My Letter to You 💌</h2>
+    <p>
+      My dearest love,<br><br>
+      I don’t know how to put into words just how much you mean to me. From the moment we met, my world changed — brighter, softer, warmer. Every day with you feels like a page from a fairy tale...<br><br>
+      You’re my safe place, my greatest joy, and my forever home.<br><br>
+      Yours always,<br>
+      Your Shahariar ❤️
+    </p>
+  </section>
+
+  <section class="photo-wall">
+    <h2>My Favorite Memories of Us 🥰</h2>
+    <div class="photo-grid">
+      <div><img src="https://source.unsplash.com/random/300x300?couple" alt="Memory 1"></div>
+      <div><img src="https://source.unsplash.com/random/301x300?love" alt="Memory 2"></div>
+      <div><img src="https://source.unsplash.com/random/302x300?romantic" alt="Memory 3"></div>
+      <div><img src="https://source.unsplash.com/random/303x300?hearts" alt="Memory 4"></div>
+    </div>
+  </section>
 </body>
 </html>
