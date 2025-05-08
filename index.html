@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Love Journey</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(#ffe6e6, #fff);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .section {
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+    }
+    .active {
+      display: block;
+    }
+    button {
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      background-color: #ff6699;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ff3366;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Happy Anniversary, My Love</h1>
+    <div id="section1" class="section active">
+      <p>Click the button to relive our journey...</p>
+      <button onclick="nextSection(1)">Start</button>
+    </div>
+    <div id="section2" class="section">
+      <p>From strangers to soulmates, every moment with you has been magical.</p>
+      <button onclick="nextSection(2)">Next</button>
+    </div>
+    <div id="section3" class="section">
+      <p>One whole year of love, laughter, late-night talks, and dreaming of forever.</p>
+      <button onclick="nextSection(3)">Next</button>
+    </div>
+    <div id="section4" class="section">
+      <p>Thank you for being my peace, my home, my everything.</p>
+      <button onclick="nextSection(4)">Next</button>
+    </div>
+    <div id="section5" class="section">
+      <p>This saree is just a thread, but on you, it becomes a memory.</p>
+      <p>I love you. Forever starts here.</p>
+      <p>– Your CSE Boy</p>
+    </div>
+  </div>
+
+  <script>
+    function nextSection(current) {
+      document.getElementById('section' + current).classList.remove('active');
+      document.getElementById('section' + (current + 1)).classList.add('active');
+    }
+  </script>
+</body>
+</html>
